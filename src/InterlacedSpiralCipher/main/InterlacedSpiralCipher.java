@@ -17,30 +17,33 @@ public class InterlacedSpiralCipher {
             //cipher logic
 
             //increment matrix edge
-             for (int i = 0; i < length - 2; i++) {
+             for (int i = 0; i <= length - 2; i++) {
 
                 //rotate corners
-                for (int j = 0; j < length - 1-i; j++) {
+                for (int j = i; j < length - 1-i; j++) {
 
                     //top left
-                    if((count%(4*(length - 1-i))==0)) break;
-                    cipher[i][j+i] = preparedString.charAt(count-1);
+                //    if((count%(4*(length - 1-i))==0)||(count>=preparedString.length()-1))break;
+                    cipher[i][j] = preparedString.charAt(count-1);
 
                     //top right
-                    if((count%(4*(length - 1-i))==0)||(count>=preparedString.length()-1))break;
-                    cipher[j+i][cipher[i].length - 1-i] = preparedString.charAt(count++);
+                    if((count%(4*(length - 1-i))==0)||(count>preparedString.length()-1))break;
+                    cipher[j][length - 1-i] = preparedString.charAt(count++);
 
                     //bottom right
-                    if((count%(4*(length - 1-i))==0)||(count>=preparedString.length()-1)) break;
-                    cipher[cipher.length - 1-i] [cipher[cipher.length - 1-i].length - 1 - j-i] = preparedString.charAt(count++);
+                    if((count%(4*(length - 1-i))==0)||(count>preparedString.length()-1)) break;
+                    cipher[length - 1-i][cipher[length - 1-i].length-1-j] = preparedString.charAt(count++);
 
                     //bottom left
-                    if((count%(4*(length - 1-i))==0)||(count>=preparedString.length()-1)) break;
-                    cipher[cipher.length - 1 - j-i][i] = preparedString.charAt(count++);
+                    if((count%(4*(length - 1-i))==0)||(count>preparedString.length()-1)) break;
+                    cipher[length - 1 - j][i] = preparedString.charAt(count++);
 
                     count++;
-                    System.out.println("Count is at " + count);
+                    if((count%(4*(length - 1-i))==0)) break;
                 }
+
+                if(length%2==1&&i==length-3) cipher[i][i] = preparedString.charAt(count-1);
+
             }
 
 
@@ -55,6 +58,11 @@ public class InterlacedSpiralCipher {
             }
         }
         return result.toString().trim();
+    }
+
+    public String decode(String encoded){
+
+        return null;
     }
 
     public int determineCipherMatrix(int i) {

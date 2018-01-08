@@ -28,6 +28,15 @@ public class InterlacedSpiralCipherTest {
     }
 
     @Test
+    public void decodeTest(){
+
+        String result = interlacedSpiralCipher.decode(encodedString);
+
+        assertEquals(clearString,result);
+
+    }
+
+    @Test
     public void determineCipherMatrixTest(){
         int numberOfElements = interlacedSpiralCipher.determineCipherMatrix(interlacedSpiralCipher.prepareString(clearString).length());
 
