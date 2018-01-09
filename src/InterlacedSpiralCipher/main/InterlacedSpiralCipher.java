@@ -23,7 +23,7 @@ public class InterlacedSpiralCipher {
                 for (int j = i; j < length - 1-i; j++) {
 
                     //top left
-                //    if((count%(4*(length - 1-i))==0)||(count>=preparedString.length()-1))break;
+
                     cipher[i][j] = preparedString.charAt(count-1);
 
                     //top right
@@ -62,7 +62,42 @@ public class InterlacedSpiralCipher {
 
     public String decode(String encoded){
 
-        return null;
+        StringBuilder decodedString = new StringBuilder();
+
+        int length = determineCipherMatrix(encoded.length());
+
+        Character[][] cipher = new Character[length][length];
+
+        //create and populate the cipher matrix
+
+        int count = 0;
+
+        for(int i = 0; i<length; i++){
+            for(int j=0;j<length; j++){
+                cipher[i][j] = encoded.charAt(count);
+                count++;
+            }
+        }
+
+        //decrypt logic
+
+
+
+        for(int i = length-2; i>=0; i--){
+            for(int j=0;j<length; j--){
+
+                //bottom left
+
+                //bottom right
+
+                //top right
+
+                //top left
+
+            }
+        }
+
+        return decodedString.reverse().toString().trim();
     }
 
     public int determineCipherMatrix(int i) {

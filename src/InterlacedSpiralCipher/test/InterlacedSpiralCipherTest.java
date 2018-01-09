@@ -10,8 +10,8 @@ public class InterlacedSpiralCipherTest {
 
 
     private InterlacedSpiralCipher interlacedSpiralCipher;
-    private final String clearString = "Sic transit gloria mundi";
-    private final String encodedString = "Stsgiriuar i ninmd l otac";
+    private final String clearString = "ana are 1";
+    private final String encodedString = "aan 1r ea";
 
     @Before
     public void init(){
