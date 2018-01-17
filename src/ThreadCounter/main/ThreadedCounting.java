@@ -35,3 +35,8 @@ public class ThreadedCounting {
         }
     }
 
+class Counter{
+    public static int count(int n){
+        return n;
+    }
+}
